@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    tools {
-        python 'Python3'  // Match the name in Jenkins Global Tools config
-    }
+    
     stages {
         stage('Clone Repo') {
             steps {
@@ -11,7 +9,7 @@ pipeline {
         }
         stage('Run Python Script') {
             steps {
-                sh 'python process_excel.py'
+                sh 'python3 process_excel.py'
             }
         }
         stage('Commit Results') {
