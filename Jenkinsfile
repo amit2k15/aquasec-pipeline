@@ -2,11 +2,6 @@ pipeline {
     agent any
     
     stages {
-        stage('Clone Repo') {
-            steps {
-                git 'https://github.com/amit2k15/aquasec-pipeline.git'
-            }
-        }
         stage('Run Python Script') {
             steps {
                 sh 'python3 process_excel.py'
@@ -20,7 +15,7 @@ pipeline {
                         git config user.email "amitkumarnayak2k15@gmail.com"
                         git add aquasec_summary.csv
                         git commit -m "Add processed output"
-                        git push https://$GIT_USER:$GIT_PASS@github.com/your-username/aquasec-pipeline.git HEAD:main
+                        git push https://$GIT_USER:$GIT_PASS@github.com/amit2k15/aquasec-pipeline.git HEAD:main
                     '''
                 }
             }
